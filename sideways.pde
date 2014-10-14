@@ -1,10 +1,15 @@
+/** 
+ *     sideways
+ *     slit scan from a perspective
+ */
+
 import processing.video.*;
 
 Movie mov;
 
 String filename, extension;
 
-int movFrameRate = 30;
+int movFrameRate = 30;   // movie frame rate
 int scanBorderOffset = 0;
 int scanWidth = 42;   // make it even
 int widthFactor = 6;  // make it ~half than the previous (+-)
@@ -27,12 +32,12 @@ PImage currentFrame, maskImage, bitmapMask;
 float correction = scanWidth * .666;
 
 void setup() {
-  
+
   int width = 400;
-  
+
   filename = "video-name";
   extension = ".mp4";
-  
+
   mov = new Movie(this, filename+extension);
 
   // read and pause the video
@@ -41,17 +46,17 @@ void setup() {
   mov.pause();
 
   movLength = getLength();
-  
+
   izq = createGraphics(int(movLength * widthFactor), mov.height);
   der = createGraphics(int(movLength * widthFactor), mov.height);
-  
+
   createMask();
 
   sc = (width - 2*margin) / mov.width;  // scale of the frame
   sc2 = (width - 2*margin) / izq.width; // scale of the miniature stripes
 
   size(width, round(3*margin + mov.height*sc + izq.height*sc2*2));
-  
+
   font = createFont("Monaco", 10);
   textFont(font, 10);
   noStroke();
