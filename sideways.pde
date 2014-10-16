@@ -1,29 +1,30 @@
 /** 
  *     sideways
- *     slit scan from a perspective
+ *     slit scan from a perspective video
+ *     Herbert Spencer - 2014
  */
 
 import processing.video.*;
 
 Movie mov;
 
-String filename, extension;
+String filename, extension;  
 
-int movFrameRate = 30;   // movie frame rate
-int scanBorderOffset = 0;
-int scanWidth = 42;   // make it even
-int widthFactor = 6;  // make it ~half than the previous (+-)
-int drawPos = 0;
+int movFrameRate = 30;           // movie frame rate
+int scanBorderOffset = 0;        // is the sample distance from the edge
+int scanWidth = 42;              // make it even
+int widthFactor = 6;             // make it ~half than the previous (+-)
+int drawPos = 0;                 // the position for placing the slice in the bitmaps
 int frame = 0;
 int movLength;
 
 // Interface variables
 PFont font;
 float margin = 25;
-float sc, sc2; // scales
+float sc, sc2;                   // scales for placing the video and the bitmaps on the screen
 
 // Left & Right sides
-PGraphics izq, der;             // the two canvases
+PGraphics izq, der;                   // the two canvases
 PImage izqSample, derSample, i, d;    // the two slices
 
 PImage currentFrame, maskImage, bitmapMask; 
@@ -127,12 +128,12 @@ void draw() {
 }
 
 
+// if you press SPACE you stop the program and export the images as they are
 void keyPressed() {
   if (key == ' ') {
     end();
   }
 }
-
 
 void prepareSlice(PImage slice) {
   slice.mask(maskImage);
