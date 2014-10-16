@@ -1,7 +1,7 @@
 sideways
 ========
 
-![Hopefully this illustration explain what it does](/data/sideways.png)
+![Hopefully this illustration explain what it does](/data/sideways.jpg)
 
 This small program created with Processing creates 2 slit scan bitmaps from a single video.
 The video must be a first-person road shoot so both sides (left & right) are created from the edges.
