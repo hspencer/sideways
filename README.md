@@ -1,7 +1,7 @@
 sideways
 ========
 
-![data/sideways.jpg](sideways)
+![./data/sideways.jpg](sideways)
 
 This small program created with Processing creates 2 slit scan bitmaps from a single video.
 The video must be a first-person road shoot so both sides (left & right) are created from the edges.
@@ -16,6 +16,6 @@ instructions
 important variables
 --------------------------
 
-* **scanBorderOffset** is the sample distance from the edge
-* **scanWidth** is the slice width
-* **widthFactor** is the multiplier of the output width
+* <code>scanBorderOffset</code> is the sample distance from the edge
+* <code>scanWidth</code> is the slice width
+* <code>widthFactor</code> is the multiplier of the output width
